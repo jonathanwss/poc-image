@@ -1,24 +1,10 @@
 import React, { useState } from "react";
-import { Image, TouchableOpacity } from "react-native";
+import { Image } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-import styled from "styled-components/native";
+import { AvatarContainer } from './style'
+import { AvatarProps } from './types'
 
-const AvatarContainer = styled(TouchableOpacity)`
-  width: 150px;
-  height: 150px;
-  
-  border-radius: 78px;
-  overflow: hidden;
-  background-color: #f3f3f3;
-  border: 2px dotted black;
-`;
-
-interface AvatarProps {
-  initialImageUri?: string;
-  onImageChange?: (base64: string) => void;
-}
-
-const Avatar: React.FC<AvatarProps> = ({ initialImageUri, onImageChange }) => {
+const Avatar: React.FC<AvatarProps> = ({ initialImageUri, onImageChange }: AvatarProps) => {
   const [imageUri, setImageUri] = useState<string | undefined>(initialImageUri);
 
   const handlePress = async () => {

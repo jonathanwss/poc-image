@@ -1,20 +1,13 @@
 import * as React from "react";
-import { View, Text } from "react-native";
+import { ContainerStyled, TextStyled } from './styles'
 
 function HomeScreen() {
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#ff2",
-      }}
-    >
-      <Text style={{ fontSize: 25, fontWeight: "700" }}>
+    <ContainerStyled>
+      <TextStyled>
         Home Screen example
-      </Text>
-    </View>
+      </TextStyled>
+    </ContainerStyled>
   );
 }
 

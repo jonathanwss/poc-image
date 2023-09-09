@@ -1,13 +1,10 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { View, Text, FlatList } from "react-native";
+import { Text, FlatList } from "react-native";
 import { Avatar } from "react-native-paper";
+import { getFilms } from "@/services/filmService";
+import { ContainerItemStyled, ContainerStyled } from './styles'
+import { Character } from './types'
 
-type Character = {
-  id: number;
-  name: string;
-  image: string;
-};
 
 function FilmsScreen() {
   const [data, setData] = useState<Character[]>([]);
@@ -16,15 +13,13 @@ function FilmsScreen() {
 
   useEffect(() => {
     fetchCharacters();
-  }, []);
+  }, [page]);
 
   const fetchCharacters = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(
-        `https://rickandmortyapi.com/api/character/?page=${page}`
-      );
-      setData((prevData) => [...prevData, ...response.data.results]);
+      const response = await getFilms(page)
+      setData((prevData) => [...prevData, ...response]);
     } catch (error) {
       console.error("Erro ao buscar personagens:", error);
     } finally {
@@ -40,30 +35,15 @@ function FilmsScreen() {
 
   const RenderItem = (item: Character) => {
     return (
-      <View
-        style={{
-          width: "50%",
-          flexDirection: "column",
-          alignItems: "center",
-          paddingBottom: 20,
-        }}
-      >
+      <ContainerItemStyled>
         <Avatar.Image size={70} source={{ uri: item.image }} />
         <Text>{item.name}</Text>
-      </View>
+      </ContainerItemStyled>
     );
   };
 
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        width: "100%",
-        paddingTop: 50,
-      }}
-    >
+    <ContainerStyled>
       <Text style={{ fontSize: 20, fontWeight: "bold" }}>
         Rick and Morty API Rest
       </Text>
@@ -78,7 +58,7 @@ function FilmsScreen() {
         onEndReachedThreshold={0.1}
       />
       {loading && <Text>Carregando...</Text>}
-    </View>
+    </ContainerStyled>
   );
 }
 

@@ -8,6 +8,7 @@ import Container from "@/components/Container";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 import { createUser } from "@/services/userService";
+import { ContainerRegisterStyled, RegisterContainerColumnStyled, SpaceView, TextStyled, TitleStyled } from './styles'
 
 type LoginScreenNavigationProp = NavigationProp<AuthSubStackParamList, "Login">;
 
@@ -46,39 +47,15 @@ const RegisterScreen = () => {
 
   return (
     <Container>
-      <View
-        style={{
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-          height: "100%",
-          paddingHorizontal: 25,
-          paddingTop: 90,
-        }}
-      >
+      <RegisterContainerColumnStyled>
         <ScrollView
           showsVerticalScrollIndicator={false}
           style={{ paddingHorizontal: 25, width: "100%" }}
         >
-          <Text
-            style={{
-              //fontFamily: "Roboto-Medium",
-              fontSize: 28,
-              fontWeight: "500",
-              color: "#333",
-              marginBottom: 30,
-            }}
-          >
+          <TitleStyled>
             Register
-          </Text>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              marginBottom: 50,
-            }}
-          ></View>
+          </TitleStyled>
+          <SpaceView></SpaceView>
           <Input
             label={"Email ID"}
             value={email}
@@ -126,23 +103,17 @@ const RegisterScreen = () => {
           <View style={{ paddingTop: 50 }}>
             <Button label={"Register"} onPress={registerUser} fullWidth />
           </View>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "center",
-              marginBottom: 30,
-            }}
-          >
+          <ContainerRegisterStyled>
             <Text>Already registered?</Text>
             <TouchableOpacity
               onPress={() => navigation.goBack()}
               style={{ marginLeft: 10 }}
             >
-              <Text style={{ color: "#AD40AF", fontWeight: "700" }}>Login</Text>
+              <TextStyled>Login</TextStyled>
             </TouchableOpacity>
-          </View>
+          </ContainerRegisterStyled>
         </ScrollView>
-      </View>
+      </RegisterContainerColumnStyled>
     </Container>
   );
 };

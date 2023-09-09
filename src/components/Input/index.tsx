@@ -1,25 +1,8 @@
-import React, { ReactNode } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  TextInput,
-  KeyboardTypeOptions,
-  NativeSyntheticEvent,
-  TextInputChangeEventData,
-  TextInputProps,
-} from "react-native";
+import React from "react";
+import { TouchableOpacity, TextInput } from "react-native";
+import { ContainerStyled, TextStyled } from './styles'
+import { InputProps } from './types'
 
-interface IInput {
-  value: any;
-  onChange?: (text: string) => void;
-  label: string;
-  icon?: ReactNode;
-  inputType?: string;
-  keyboardType?: KeyboardTypeOptions;
-  fieldButtonLabel?: string;
-  fieldButtonFunction?: VoidFunction;
-}
 const Input = ({
   value,
   onChange,
@@ -29,17 +12,9 @@ const Input = ({
   keyboardType,
   fieldButtonLabel,
   fieldButtonFunction,
-}: IInput) => {
+}: InputProps) => {
   return (
-    <View
-      style={{
-        flexDirection: "row",
-        borderBottomColor: "#ccc",
-        borderBottomWidth: 1,
-        paddingBottom: 8,
-        marginBottom: 25,
-      }}
-    >
+    <ContainerStyled>
       {icon}
       {inputType == "password" ? (
         <TextInput
@@ -60,11 +35,11 @@ const Input = ({
         />
       )}
       <TouchableOpacity onPress={fieldButtonFunction}>
-        <Text style={{ color: "#AD40AF", fontWeight: "700" }}>
+        <TextStyled>
           {fieldButtonLabel}
-        </Text>
+        </TextStyled>
       </TouchableOpacity>
-    </View>
+    </ContainerStyled>
   );
 };
 

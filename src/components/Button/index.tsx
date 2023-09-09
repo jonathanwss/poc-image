@@ -1,36 +1,20 @@
-import { Text, TouchableOpacity } from "react-native";
 import React from "react";
+import { ButtonStyled, TextStyled } from './styles'
+import { ButtonProps } from './types'
 
-interface IButton {
-  label: string;
-  onPress: VoidFunction;
-  fullWidth?: boolean;
-  bgColor?: string;
-}
-
-const Button = ({ label, onPress, fullWidth, bgColor }: IButton) => {
+const Button = ({ label, onPress, fullWidth, bgColor }: ButtonProps) => {
   return (
-    <TouchableOpacity
+    <ButtonStyled
       onPress={onPress}
       style={{
         backgroundColor: bgColor ? bgColor : "#AD40AF",
-        padding: 18,
-        borderRadius: 10,
-        marginBottom: 30,
         width: fullWidth ? "100%" : 80,
       }}
     >
-      <Text
-        style={{
-          textAlign: "center",
-          fontWeight: "700",
-          fontSize: 18,
-          color: "#fff",
-        }}
-      >
+      <TextStyled>
         {label}
-      </Text>
-    </TouchableOpacity>
+      </TextStyled>
+    </ButtonStyled>
   );
 };
 

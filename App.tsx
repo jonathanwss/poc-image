@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { AuthProvider } from "@/contexts/authContext";
 import Routes from "@/routes";
 import { NavigationContainer } from "@react-navigation/native";

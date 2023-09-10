@@ -29,7 +29,7 @@ export const TextStyled = styled(Text)`
 export const TitleStyled = styled(Text)`
     font-size: 28px;
     font-weight: 500;
-    color: #333
+    color: #333;
     margin-bottom: 30px;
 `
 

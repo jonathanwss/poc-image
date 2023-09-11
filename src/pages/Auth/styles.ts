@@ -22,7 +22,8 @@ export const ContainerRegisterStyled = styled.View`
 `;
 
 export const TextStyled = styled(Text)`
-    color: #AD40AF;
+    color: #000;
+    font-size: 16px;
     font-weight: bold;
 `
 
@@ -30,7 +31,7 @@ export const TitleStyled = styled(Text)`
     font-size: 28px;
     font-weight: 500;
     color: #333;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 `
 
 export const SpaceView = styled.View`

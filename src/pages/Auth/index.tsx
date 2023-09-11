@@ -1,7 +1,7 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import LoginScreen from "./Login";
-import RegisterScreen from "./Register";
-
+import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LoginScreen from './Login';
+import RegisterScreen from './Register';
 
 export type AuthSubStackParamList = {
   Login: undefined;
@@ -13,14 +13,14 @@ const Stack = createNativeStackNavigator<AuthSubStackParamList>();
 
 const AuthScreen = () => {
   return (
-    <Stack.Navigator initialRouteName="Login">
+    <Stack.Navigator initialRouteName='Login'>
       <Stack.Screen
-        name="Login"
+        name='Login'
         component={LoginScreen}
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Register"
+        name='Register'
         component={RegisterScreen}
         options={{ headerShown: false }}
       />

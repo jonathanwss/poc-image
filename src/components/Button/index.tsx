@@ -7,7 +7,7 @@ const Button = ({ label, onPress, fullWidth, bgColor }: ButtonProps) => {
     <ButtonStyled
       onPress={onPress}
       style={{
-        backgroundColor: bgColor ? bgColor : "#AD40AF",
+        backgroundColor: bgColor ? bgColor : "#000",
         width: fullWidth ? "100%" : 80,
       }}
     >

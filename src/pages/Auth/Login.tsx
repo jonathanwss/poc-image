@@ -42,7 +42,7 @@ const LoginScreen = () => {
     <Container>
       <AuthScreenBg>
         <ContainerColumnStyled>
-          <TitleStyled>Login</TitleStyled>
+          <TitleStyled style={{ marginBottom: 50 }}>Login</TitleStyled>
           <Input
             label={'Email ID'}
             value={email}
